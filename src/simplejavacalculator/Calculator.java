@@ -17,6 +17,7 @@ import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
 public class Calculator {
+
     public enum BiOperatorModes {
         normal, add, minus, multiply, divide , xpowerofy 
     }
@@ -36,8 +37,8 @@ public class Calculator {
             if (num2 != 0) {
                 return num1 + num2;
             }
+
             return num1;
-            
         }
         if (mode == BiOperatorModes.minus) {
             return num1 - num2;
@@ -51,6 +52,7 @@ public class Calculator {
         if (mode == BiOperatorModes.xpowerofy) {
             return pow(num1,num2);
         }
+
         // never reach
         throw new Error();
     }
@@ -72,6 +74,7 @@ public class Calculator {
     public Double calculateEqual(Double num) {
         return calculateBi(BiOperatorModes.normal, num);
     }
+
     public Double reset() {
         num2 = 0.0;
         num1 = 0.0;
@@ -103,6 +106,7 @@ public class Calculator {
             if (num % 90 == 0 && num % 180 != 0) {
                 return NaN;
             }
+
             return Math.tan(Math.toRadians(num));
         }
         if (newMode == MonoOperatorModes.log) {
@@ -114,7 +118,9 @@ public class Calculator {
         if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
         }
+
         // never reach
         throw new Error();
     }
+
 }
